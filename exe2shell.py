@@ -8,12 +8,14 @@ shellcode = ''
 bytes_ = 0
 
 for b in open(sys.argv[1], 'rb').read():
-    shellcode += '\\x' + b.encode('hex')
+    print('\\' + hex(b), end="\r", flush=True)
+    shellcode += '\\' + hex(b)
+    #print(shellcode,flush=True)
     bytes_ += 1
 
 print ('Number of bytes for file ' + sys.argv[1] + ': ' + str(bytes_) + '\n')
 
-fp=open("shell.txt", "w")
+fp=open(sys.argv[0].split("\\")[len(sys.argv[0].split("\\") - 1)] + ".shell.txt", "w")
 fp.write(shellcode)
 fp.close()
 
