@@ -15,7 +15,7 @@ for b in open(sys.argv[1], 'rb').read():
 
 print ('Number of bytes for file ' + sys.argv[1] + ': ' + str(bytes_) + '\n')
 
-fp=open(sys.argv[0].split("\\")[len(sys.argv[0].split("\\") - 1)] + ".shell.txt", "w")
+fp=open(sys.argv[0].split("\\")[len(sys.argv[0].split("\\")) - 1] + ".shell.txt", "w")
 fp.write(shellcode)
 fp.close()
 
